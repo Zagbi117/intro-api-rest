@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>CRUD IoT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark mb-4">
+  <div class="container">
+    <span class="navbar-brand mb-0 h1">🌐 Dispositivos IoT</span>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#deviceModal">
+      ➕ Nuevo dispositivo
+    </button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Dispositivo</th>
+          <th>Dirección</th>
+          <th>IP Cliente</th>
+          <th>Fecha</th>
+          <th class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="devicesTable"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deviceModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <form id="deviceForm">
+        <div class="modal-header">
+          <h5 class="modal-title">Dispositivo IoT</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="hidden" id="deviceId">
+
+          <div class="mb-3">
+            <label class="form-label">Nombre del dispositivo</label>
+            <input type="text" id="deviceName" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Dirección</label>
+            <select id="direccionCode" class="form-select" required></select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Dirección (texto)</label>
+            <input type="text" id="direccionTexto" class="form-control" readonly>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button class="btn btn-primary" type="submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
